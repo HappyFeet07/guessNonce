@@ -1,0 +1,32 @@
+html(lang="en")
+  head
+    title= title
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
+  body
+
+block content
+  div.row
+    form.col.s10(action="/calHash" method="POST")
+      div.input-field.row.s6
+        input.validate(id="blockhash" name="blockhash" type="text")
+        label(for="blockhash") Blockhash
+      div.input-field.row.s6
+        input.validate(id="prevhash" name="prevhash" type="text")
+        label(for="prevhash") Prevhash
+      div.input-field.row.s6
+        input.validate(id="blockheight" name="blockheight" type="text")
+        label(for="blockheight") Blockheight
+      div.input-field.row.s6
+        input.validate(id="nonce" name="nonce" type="text")
+        label(for="nonce") nonce
+      div.input-field.row.s6
+        input.validate(id="minerid" name="minerid" type="text")
+        label(for="minerid") MinerId
+      div
+        button.btn.waves-effect.waves-light(type="submit") Calculate hash
+  div.row 
+    h5 hash answer = #{ result }
